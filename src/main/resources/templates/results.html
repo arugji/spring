@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>All Details</title>
+</head>
+
+<body>
+	<center>
+		<form>
+			<table align="center">
+				<tr th:each="current : ${vacation}">
+					<td th:text="${current.id}" />
+					<td th:text="${current.name}" />
+					<td th:text="${current.place.venue}" />
+					<td th:text="${current.place.state}" />
+					<td><a th:href="@{/edit/{id}(id=${current.id})}">Edit</a></td>
+					<td><a th:href="@{/delete/{id}(id=${current.id})}">Delete</a></td>
+
+				</tr>
+			</table>
+			<a href="inputStudent">Add a new Vacation</a>
+
+		</form>
+	</center>
+</body>
+
+</html>

@@ -1,26 +1,36 @@
-package com.arda.app.entity;
+package com.arda.app.bean;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 //ArdaRugj
 //Cis175
 //21 Oct 2021
 
 @Entity
-@Table(name = "VacationDestinations")
 public class VacationDestinations {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "name", length = 100, nullable = false)
 	private String name;
+
+	@Autowired
+	private Place place;
+
+	public VacationDestinations() {
+		super();
+	}
+
+	public VacationDestinations(String name) {
+		super();
+		this.name = name;
+	}
 
 	public Long getId() {
 		return id;
@@ -43,6 +53,14 @@ public class VacationDestinations {
 		String data = "VacationDestinations { Id = " + id + ", Name = " + name + " }";
 		System.out.println(data);
 		return data;
+	}
+
+	public Place getPlace() {
+		return place;
+	}
+
+	public void setPlace(Place place) {
+		this.place = place;
 	}
 
 }

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert New Vacation</title>
+</head>
+
+<body>
+	<center>
+		<table>
+			<form th:object="${newVacation}" th:action="@{/update/{id}(id=${newVacation.id})}" method='POST'>
+				<tr>
+					<td>Name:</td>
+					<td><input name="first" size="20" th:field="*{name}"></td>
+				</tr>
+				<tr>
+					<td>Venue:</td>
+					<td><input name="school.sNo" size="20" th:field="*{place.venue}"></td>
+				</tr>
+				<tr>
+					<td>State:</td>
+					<td><input name="school.sName" size="20" th:field="*{place.state}"></td>
+				</tr>
+				<tr>
+					<td colspan="3" align="center"> <input name="submit" type="submit" value="submit"></td>
+				</tr>
+			</form>
+		</table>
+		<a href="viewAll">View all Vacations</a>
+	</center>
+</body>
+
+</html>
